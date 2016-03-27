@@ -38,9 +38,13 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Game1.cs" />
+    <Compile Include="GameStates\GameState.cs" />
+    <Compile Include="GameStates\PlayingState.cs" />
+    <Compile Include="VillageSim.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sprites\Sprite.cs" />
+    <Compile Include="Sprites\Villager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
