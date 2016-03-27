@@ -1,17 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Village_Sim.GameStates;
+using Village_Sim.Sprites;
 
 namespace Village_Sim {
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game {
+    public class VillageSim : Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public GameState gameState;
+        
 
         //Ahh, feels good to be back in an XNA like setup
-        public Game1() {
+        public VillageSim() {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
@@ -24,7 +28,6 @@ namespace Village_Sim {
         /// </summary>
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
