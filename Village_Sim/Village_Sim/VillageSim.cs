@@ -12,6 +12,9 @@ namespace Village_Sim {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public GameState gameState;
+        public SpriteFont font;
+        public KeyboardState keyBoard;
+        public InputHandler inputHandler;
         
 
         //Ahh, feels good to be back in an XNA like setup
@@ -36,10 +39,13 @@ namespace Village_Sim {
         /// all of your content.
         /// </summary>
         protected override void LoadContent() {
+            inputHandler = new InputHandler();
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            font = Content.Load<SpriteFont>("font");
             // TODO: use this.Content to load your game content here
+            gameState = new PlayingState(this);
         }
 
         /// <summary>
@@ -60,7 +66,7 @@ namespace Village_Sim {
                 Exit();
 
             // TODO: Add your update logic here
-
+            gameState.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -72,7 +78,9 @@ namespace Village_Sim {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            spriteBatch.Begin();
+            gameState.Draw(spriteBatch);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
