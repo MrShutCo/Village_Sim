@@ -40,6 +40,8 @@
   <ItemGroup>
     <Compile Include="GameStates\GameState.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
+    <Compile Include="Helpers\EventHandler.cs" />
+    <Compile Include="Helpers\TimeEvent.cs" />
     <Compile Include="Helpers\TimeSystem.cs" />
     <Compile Include="InputHandler.cs" />
     <Compile Include="VillageSim.cs" />
