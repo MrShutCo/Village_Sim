@@ -19,7 +19,12 @@ namespace Village_Sim.GameStates {
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
+            spriteBatch.Draw(Game.background, new Vector2(0,0), Color.White);
             spriteBatch.DrawString(Game.font, "Current Time: " + timeSystem.CurrentTime + "    Speed: " + Math.Round(timeSystem.Speed, 1), new Vector2(10, 13), Color.Black);
+            if (!timeSystem.isRunning) {
+                spriteBatch.DrawString(Game.font, "PAUSED", new Vector2(100, 35), Color.Red);
+            }
+            
         }
 
         public override void Update(GameTime gameTime) {
