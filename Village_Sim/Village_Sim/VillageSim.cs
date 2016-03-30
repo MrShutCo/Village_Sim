@@ -1,7 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Village_Sim.GameStates;
+using Village_Sim.Helpers;
 using Village_Sim.Sprites;
 
 namespace Village_Sim {
@@ -15,7 +17,6 @@ namespace Village_Sim {
         public SpriteFont font;
         public KeyboardState keyBoard;
         public InputHandler inputHandler;
-        
 
         //Ahh, feels good to be back in an XNA like setup
         public VillageSim() {
@@ -45,6 +46,7 @@ namespace Village_Sim {
 
             font = Content.Load<SpriteFont>("font");
             // TODO: use this.Content to load your game content here
+            
             gameState = new PlayingState(this);
         }
 
