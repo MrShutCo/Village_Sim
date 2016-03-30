@@ -12,7 +12,8 @@ namespace Village_Sim.Helpers {
 
         public TimeSpan CurrentTime { get; set; }
         public float littleTime;
-        private bool isRunning;
+        public bool isRunning;
+        public EventHandler eventHandler;
 
         public float Speed;
 
@@ -27,15 +28,26 @@ namespace Village_Sim.Helpers {
             game.inputHandler.onSpaceBar += new InputHandler.InputEvent(Pause);
             game.inputHandler.onSlowDown += new InputHandler.InputEvent(SlowDown);
             game.inputHandler.onSpeedUp += new InputHandler.InputEvent(SpeedUp);
+
+            eventHandler = new EventHandler();
+            TimeEvent te = new TimeEvent(TimeSpan.FromHours(4), TimeSpan.FromHours(4), TimeEventType.Static);
+            te.onActivate += new TimeEvent.Event(Test);
+            eventHandler.AddEvent(te);
+        }
+
+        public void Test() {
+            int i = 0;
         }
 
         public void Update(GameTime gameTime) {
+            
             if (isRunning)
                 littleTime += gameTime.ElapsedGameTime.Milliseconds;
             if (littleTime >= 100) {
                 CurrentTime = CurrentTime.Add(TimeSpan.FromMinutes(1 * Speed));
                 littleTime = 0;
             }
+            eventHandler.Update(gameTime, this);
         }
         
         public void SpeedUp() {
