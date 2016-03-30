@@ -18,7 +18,8 @@ namespace Village_Sim {
         public KeyboardState keyBoard;
         public InputHandler inputHandler;
         public Texture2D background;
-        
+        public Texture2D villagerTexture;
+
         //Ahh, feels good to be back in an XNA like setup
         public VillageSim() {
             graphics = new GraphicsDeviceManager(this);
@@ -45,6 +46,7 @@ namespace Village_Sim {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             background = Content.Load<Texture2D>("backgroundGear");
+            villagerTexture = Content.Load<Texture2D>("Villager Old");
             font = Content.Load<SpriteFont>("font");
             // TODO: use this.Content to load your game content here
 

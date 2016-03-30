@@ -31,12 +31,12 @@ namespace Village_Sim.Helpers {
 
             eventHandler = new EventHandler();
             TimeEvent te = new TimeEvent(TimeSpan.FromHours(4), TimeSpan.FromHours(4), TimeEventType.Static);
-            te.onActivate += new TimeEvent.Event(Test);
+            te.onActivate += new TimeEvent.Event(Spawn);
             eventHandler.AddEvent(te);
         }
 
-        public void Test() {
-            int i = 0;
+        public void Spawn() {
+            
         }
 
         public void Update(GameTime gameTime) {
@@ -47,6 +47,7 @@ namespace Village_Sim.Helpers {
                 CurrentTime = CurrentTime.Add(TimeSpan.FromMinutes(1 * Speed));
                 littleTime = 0;
             }
+
             eventHandler.Update(gameTime, this);
         }
         
