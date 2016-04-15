@@ -19,6 +19,7 @@ namespace Village_Sim {
         public InputHandler inputHandler;
         public Texture2D background;
         public Texture2D villagerTexture;
+        public Script script;
 
         //Ahh, feels good to be back in an XNA like setup
         public VillageSim() {
@@ -51,6 +52,8 @@ namespace Village_Sim {
             // TODO: use this.Content to load your game content here
 
             gameState = new PlayingState(this);
+            script.addReference(gameState, "test"); // Allow our script to access the current GameState
+            //script = new Script();
         }
 
         /// <summary>
@@ -71,6 +74,8 @@ namespace Village_Sim {
                 Exit();
 
             // TODO: Add your update logic here
+
+            script.spawn();
             gameState.Update(gameTime);
             base.Update(gameTime);
         }

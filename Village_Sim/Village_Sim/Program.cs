@@ -13,8 +13,13 @@ namespace Village_Sim {
         [STAThread]
         static void Main()
         {
+            Script script = new Script();
             using (var game = new VillageSim())
+            {
+                script.addReference(game, "game");
+                game.script = script;
                 game.Run();
+            }
         }
     }
 #endif
