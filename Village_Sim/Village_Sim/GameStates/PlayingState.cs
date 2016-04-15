@@ -10,8 +10,8 @@ using Microsoft.Xna.Framework.Input;
 using Village_Sim.Sprites;
 
 namespace Village_Sim.GameStates {
-    public class PlayingState : GameState {
-
+    //public class PlayingState : GameState {
+        /*
         TimeSystem timeSystem;
         Spawn s;
 
@@ -19,15 +19,15 @@ namespace Village_Sim.GameStates {
             :base(game){
             s = new Spawn(game);
             timeSystem = new TimeSystem(game);
-            /*
+            
             TimeEvent spawn = new TimeEvent(TimeSpan.FromHours(0), TimeSpan.FromDays(1), TimeEventType.Repeating);
             spawn.onActivate += new TimeEvent.Event(Spawn); // We got an error here
             timeSystem.eventHandler.AddEvent(spawn);
-            */
+            
         }
 
-        public void Spawn(int amount) {
-            s.SpawnVillagers(amount);
+        public void Spawn() {
+            Game.script.spawn();
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
@@ -47,7 +47,8 @@ namespace Village_Sim.GameStates {
 
         public override void Update(GameTime gameTime) {
             Game.inputHandler.Update();
-            //timeSystem.Update(gameTime);
+            timeSystem.Update(gameTime);
         }
-    }
+        */
+    //
 }

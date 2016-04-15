@@ -38,7 +38,7 @@ namespace Village_Sim
         public void spawn()
         {
             state.DoString(@"
-                  test:Spawn(1)
+                  test:Spawn()
                ");
         }
 
