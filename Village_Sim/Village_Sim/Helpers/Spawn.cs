@@ -12,21 +12,20 @@ namespace Village_Sim.Helpers
 {
     public class Spawn
     {
-        public List<Villager> villagers = new List<Villager>();
-        public VillageSim Game;
 
-        public Spawn(VillageSim game) {
-            Game = game;
+        public Spawn() {
         }
 
-        public void SpawnVillagers(int spawnCap)
+        public List<Sprite> SpawnSprite(Texture2D texture, int spawnCap)
         {
+            List<Sprite> sprites = new List<Sprite>();
             Random r = new Random();
             for (int i = 0; i < spawnCap; i++)
             {
-                Villager v = new Villager(Game.villagerTexture, new Vector2(r.Next(0, 800), r.Next(0, 600)), new Rectangle(0, 0, 0, 0));
-                villagers.Add(v);
+                Sprite v = new Sprite(texture, new Vector2(r.Next(0, 800), r.Next(0, 600)), new Rectangle(0, 0, 0, 0));
+                sprites.Add(v);
             }
+            return sprites;
         }
     }
 }

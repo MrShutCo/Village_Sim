@@ -10,28 +10,31 @@ using Microsoft.Xna.Framework.Input;
 using Village_Sim.Sprites;
 
 namespace Village_Sim.GameStates {
-    public class PlayingState : GameState {
-
+    //public class PlayingState : GameState {
+        /*
         TimeSystem timeSystem;
         Spawn s;
 
         public PlayingState(VillageSim game)
             :base(game){
-            timeSystem = new TimeSystem(game);
             s = new Spawn(game);
+            timeSystem = new TimeSystem(game);
+            
             TimeEvent spawn = new TimeEvent(TimeSpan.FromHours(0), TimeSpan.FromDays(1), TimeEventType.Repeating);
-            spawn.onActivate += new TimeEvent.Event(Spawn);
+            spawn.onActivate += new TimeEvent.Event(Spawn); // We got an error here
             timeSystem.eventHandler.AddEvent(spawn);
+            
         }
 
         public void Spawn() {
-            s.SpawnVillagers(10);
+            Game.script.spawn();
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
+            Console.WriteLine(s.sprites.Count());
             spriteBatch.Draw(Game.background, new Vector2(0, 0), Color.White);
-            foreach (Villager v in s.villagers) {
-                v.Draw(spriteBatch);
+            foreach (Sprite spr in s.sprites) {
+                spr.Draw(spriteBatch);
             }
             
             spriteBatch.DrawString(Game.font, "Current Time: " + timeSystem.CurrentTime + "    Speed: " + Math.Round(timeSystem.Speed, 1), new Vector2(10, 13), Color.Black);
@@ -46,5 +49,6 @@ namespace Village_Sim.GameStates {
             Game.inputHandler.Update();
             timeSystem.Update(gameTime);
         }
-    }
+        */
+    //
 }

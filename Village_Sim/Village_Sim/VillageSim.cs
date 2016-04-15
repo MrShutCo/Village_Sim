@@ -18,7 +18,10 @@ namespace Village_Sim {
         public KeyboardState keyBoard;
         public InputHandler inputHandler;
         public Texture2D background;
-        public Texture2D villagerTexture;
+        public Script script;
+
+        //Refactored stuff
+        Simulation sim;
 
         //Ahh, feels good to be back in an XNA like setup
         public VillageSim() {
@@ -44,13 +47,21 @@ namespace Village_Sim {
         protected override void LoadContent() {
             inputHandler = new InputHandler();
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            background = Content.Load<Texture2D>("backgroundGear");
-            villagerTexture = Content.Load<Texture2D>("Villager Old");
-            font = Content.Load<SpriteFont>("font");
+            /*
+            background = ;
+            
+            font = Content.Load<SpriteFont>("font");*/
             // TODO: use this.Content to load your game content here
+            //script.addReference(gameState, "test"); // Allow our script to access the current GameState
+            //script = new Script();
 
-            gameState = new PlayingState(this);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+            textures.Add("Villager", Content.Load<Texture2D>("Villager Old"));
+            textures.Add("Background", Content.Load<Texture2D>("backgroundGear"));
+
+            sim = new Simulation(textures);
         }
 
         /// <summary>
@@ -71,7 +82,9 @@ namespace Village_Sim {
                 Exit();
 
             // TODO: Add your update logic here
-            gameState.Update(gameTime);
+
+            //script.spawn();
+            sim.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -84,7 +97,7 @@ namespace Village_Sim {
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            gameState.Draw(spriteBatch);
+            sim.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
