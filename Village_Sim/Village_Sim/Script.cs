@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NLua;
+﻿using NLua;
+using System;
 
-namespace Village_Sim
-{
+namespace Village_Sim {
     public class Script
     {
         Lua state;
